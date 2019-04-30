@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import "./App.css"
+import { withData } from './DataProvider';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  render() {
+    const styles={
+      fox:{
+        width: "90%",
+        // height: 700,
+        display:"block",
+        margin:"auto"
+      },
+      button:{
+        display: "block",
+        margin: "auto",
+        padding: 10
+      }
+    }
+    return (
+      <div>
+        <button style={styles.button} onClick={() => this.props.getFox()}>Another one</button>
+        <br/>
+        <img style={styles.fox} src={this.props.fox} alt=""/>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withData(App);
