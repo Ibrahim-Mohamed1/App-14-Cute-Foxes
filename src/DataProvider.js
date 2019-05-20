@@ -16,11 +16,12 @@ class DataProvider extends Component {
 
     getFox = () => {
         axios.get(`https://vschool-cors.herokuapp.com?url=https://randomfox.ca/floof/`).then(res => {
-          console.log(res.data)
             this.setState({
                 fox: res.data.image
             })
-        })
+        }).catch(function (error) {
+            window.location.reload()
+        });
     }
 
     render() {

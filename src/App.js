@@ -8,7 +8,6 @@ class App extends Component {
     const styles={
       fox:{
         width: "90%",
-        // height: 700,
         display:"block",
         margin:"auto"
       },
